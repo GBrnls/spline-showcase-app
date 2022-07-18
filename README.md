@@ -4,7 +4,8 @@
 A little showcase App made with 💖, React & Spline !
 ## 🌐 Live Demo
 
-👉 Click Here
+👉 [Click Here](https://spline-showcase-app.vercel.app/)
+
 ## Features
 👉 Currently :
 * Uses React
@@ -18,7 +19,6 @@ A little showcase App made with 💖, React & Spline !
 * Loader on start for an improved UX
 * Refactoring & Cleaning
 
-
 ## ⚙️ Installation
 
 Install my-project with npm
@@ -30,4 +30,5 @@ Install my-project with npm
 
 ## 🪙Credits
 Inspiration Design : https://dribbble.com/shots/18488955-Web-App-UI-Design
+
 Spline (3D Design Tool) : https://spline.design/
