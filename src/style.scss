@@ -1,122 +1,254 @@
 @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@700&display=swap');
 
+@mixin xs {
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+
+@mixin s {
+  @media screen and (min-width: 700px) {
+    @content;
+  }
+}
+
+@mixin m {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin l {
+  @media screen and (min-width: 920px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: 1040px) {
+    @content;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Spline Sans', sans-serif;
   cursor: default;
+  background: #FFF;
+  display: unset;
+
 }
 
 .App {
   margin: 0;
-  padding: 0;
+  padding: 0 0 5%;
   background: #0E1129;
-  height: 100vh;
   width: 100%;
+  height: auto;
   overflow: hidden;
+  position: relative;
+  font-size: 14px;
+  color: white;
+  z-index: -2;
 
-  .Wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-size: 12px;
-    color: white;
+    @include xs {
+      font-size: 16px;
+    }
+
+    @include s {
+      font-size: 18px;
+    }
+
+    @include xl {
+      padding: 0;
+      height: 100vh;
+      font-size: 12px;
+    }
+
+  .Content {
+    height: 60vh;
+    width: 90%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5%;
+    padding: 5% 5% 0;
+    text-align: center;
 
-    .Content {
-      position: absolute;
-      padding-left: 5%;
-      top: 0;
-      left: 0;
+    @include s {
+      height: 55vh;
+    }
+
+    @include l {
+      height: 45vh;
+    }
+
+    @include xl {
+      height: 70vh;
       width: 40vw;
-      height: 100vh;
+      position: relative;
+      z-index: 1;
+      gap: 1%;
+      padding: 2.5% 2.5% 0;
+    }
 
-      header {
-        margin: 5% auto 0;
-        width: 77.5%;
-        display: flex;
+    header {
+      width: 90%;
+      display: flex;
+      justify-content: center;
 
-        .logo {
-          height: 100%;
-          width: auto;
-          align-self: center;
-        }
-        
-        h1 {
-          margin-left: 5%;
-        }
+      .logo {
+        height: 100%;
+        width: auto;
+        align-self: center;
       }
-
-      h2, p {
-        margin: 8% auto;
-      }
-  
-      h2 {
-        font-family: 'Spline Sans Mono', monospace;
-        font-weight: bold;
-        font-size: 50px;
-        max-width: 30vw;
-      }
-  
-      p {
-        font-weight: normal;
-        line-height: 150%;
-        max-width: 30vw;
-      }
-
-      .button {
-        display: block;
-        height: fit-content;
-        width: fit-content;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        position: relative;
-        left: 20%;
-        transition: all 0.1s ease-in-out;
-
-        img {
-          height: 38px;
-          width: auto;
-        }
-      }
-
-      .button:hover {
-        opacity: 0.85;
-      }
-
-      .line {
-        height: 50%;
-        width: 2px;
-        position: absolute;
-        top: 25%;
-      }
-
-      .SocialLinks {
-        position: absolute;
-        bottom: 10%;
-        left: 9%;
-        display: flex;
-        flex-direction: column;
-        width: fit-content;
-        gap: 10px;
-
-        a img {
-          height : 20px;
-          width: auto;
-        }
+      
+      h1 {
+        width: 40%;
       }
     }
 
-    .Spline {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60vw;
-      height: 100vh;
-      z-index: 10;
+    h2 {
+      font-family: 'Spline Sans Mono', monospace;
+      font-weight: bold;
+      font-size: 50px;
+
+      @include xs {
+        font-size: 58px;
+        width: 90%;
+      }
+
+      @include s {
+        font-size: 65px;
+        width: 78%;
+      }
+
+      @include xl {
+        font-size: 50px;
+        width: 80%;
+      }
+    }
+
+    p {
+      font-weight: normal;
+      line-height: 150%;
+      font-size: 16px;
+
+      @include xs {
+        font-size: 18px;
+        width: 95%;
+        text-align: justify;
+      }
+
+      @include s {
+        font-size: 22px;
+      }
+
+      @include xl {
+        font-size: 14px;
+        width: 85%;
+      }
     }
   }
 
+  .Spline {
+    height: 85vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -10%;
+
+    @include xs {
+      top: 3%;
+    }
+
+    @include s {
+      height: 80vw;
+      top: -3%;
+    }
+
+    @include xl {
+      height: 100vh;
+      width: 55vw;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    .Render {
+      transform: scale(0.35);
+
+      @include xs {
+        transform: scale(0.48);
+      }
+
+      @include s {
+        transform: scale(0.78);
+      }
+
+      @include l {
+        transform: scale(0.9);
+      }
+
+      @include xl {
+        transform: scale(0.68) translate(0, 20px);
+      }
+    }
+  }
+
+  .SocialLinks {
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+    margin: 5%;
+
+    .line {
+      position: absolute;
+      top: 18.5%;
+      left: 2%;
+      height: 78%;
+      width: 2px;
+      background: linear-gradient(
+        180deg,
+        #08b6f9 0%,
+        #6c56ef 33.57%,
+        #1306dd 65.86%,
+        #aa0eb2 100%
+      );
+    }
+
+    a img {
+      height : 30px;
+      width: auto;
+
+      @include xs {
+        height : 40px;
+      }
+    }
+
+    .button {
+      margin-left: 15%;
+
+      @include xs {
+        margin-left: 20%;
+      }
+
+      @include s {
+        margin-left: 50%;
+      }
+
+      @include l {
+        margin-left: 70%;
+      }
+
+      @include xl {
+        margin-left: 100%;
+      }
+    }
+  }
 }
